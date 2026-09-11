@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  tomcat:
+    accesslog:
+      # Raw request-line-level log, independent of our own servlet logging -
+      # tells us whether a client (e.g. desktop Word) connected to Tomcat at
+      # all, even for requests that never reach WebDavServlet.
+      enabled: true
+      directory: logs
+      pattern: "%h %t \"%r\" %s %b"
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+  mvc:
+    formcontent:
+      filter:
+        # This filter applies to every servlet in the app, not just Spring MVC's.
+        # Left enabled, it tries to parse any PUT body sent without an explicit
+        # Content-Type as application/x-www-form-urlencoded - which corrupts the
+        # binary .docx bytes the WebDAV servlet's PUT handler reads.
+        enabled: false
+
+app:
+  documents:
+    # External, writable directory. Kept outside the jar/classpath because
+    # WebDAV PUT and the upload API both need to overwrite files at runtime.
+    dir: ./data/documents
+    default-file: sample.docx
+  cors:
+    allowed-origins: http://localhost:3000
