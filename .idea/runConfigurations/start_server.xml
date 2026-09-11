@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="start server" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="attachment-editor-server" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.mgm.attachmenteditor.AttachmentEditorApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
