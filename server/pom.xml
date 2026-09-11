@@ -12,9 +12,9 @@
   </parent>
 
   <groupId>com.mgm</groupId>
-  <artifactId>attachment-editor-server</artifactId>
+  <artifactId>server</artifactId>
   <version>0.1.0-SNAPSHOT</version>
-  <name>attachment-editor-server</name>
+  <name>server</name>
   <description>WebDAV + REST server enabling MS Word desktop editing of a .docx file</description>
 
   <properties>
